@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2" ng-controller="TeamFormCtrl">
+      <!--Sidebar content-->
+
+      Search: <input ng-model="queryTeam">
+
+      <button ng-click="searchTeams()">SEARCH</button>
+
+      <!-- Sort by:
+      <select ng-model="teamOrder">
+        <option value="name">Alphabetical</option>
+        <option value="age">Oldest</option>
+      </select> -->
+
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- <div class="col-md-10"> -->
+      <!--Body content
+
+      | filter:query | orderBy:orderProp
+
+      -->
+
+      <ul class="col-md-10 teams">
+        <li ng-repeat="team in teams | orderBy: teamOrder" class="thumbnail team-listing">
+          <a href="#/teams/{{$index}}" class="thumb"><img ng-src="images/team/{{team.shortname}}_tn.jpg"></a>
+          <div class="team-info">
+            <a href="#/teams/{{$index}}">{{team.name}}</a>
+            <p>{{team.history}}</p>
+            <!-- <p>{{team.players}}</p> -->
+
+            <ul class="players" data-team="{{team.name}}">
+                <li ng-click="togglePlayers()">Player List</li>
+                <li ng-repeat="player in team.players" class="thumbnail player-listing" ng-hide="myVar">
+                <p>{{player.name}}</p>
+                <p>{{player.reknown}}</p>
+              </li>
+            </ul>
+
+
+          </div>
+        </li>
+      </ul>
+
+    <!-- </div> -->
+  </div>
+</div>

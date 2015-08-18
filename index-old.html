@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" ng-app="playerApp" >
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Demo</title>
+  <script src="/node_modules/angular/angular.js"></script>
+  <script src="/node_modules/angular-route/angular-route.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <!-- <script src="lib/angular/angular.min.js"></script> -->
+</head>
+<body>
+
+
+  <p>Try to change the names.</p>
+
+  <div ng-controller="myCtrl">
+
+  First Name: <input type="text" ng-model="firstName"><br>
+  Last Name: <input type="text" ng-model="lastName"><br>
+  <br>
+  Full Name: {{firstName + " " + lastName}}
+
+  </div>
+
+
+  <div class="banner" ng-controller="myBannerCtrl">
+
+    <h1>{{bannerTitle}}</h1>
+    <h2>{{bannerSub}}</h2>
+
+  </div>
+
+  <div ng-controller="myPlayerCtrl">
+
+  <ul>
+    <li ng-repeat="player in players | orderBy : 'name'">
+      {{ player.name + ', ' + player.reknown }}
+    </li>
+  </ul>
+
+  </div>
+
+  <div ng-controller="myButton1Ctrl" class="button">
+
+    <button ng-click="count = count + 1">Click Me!</button>
+
+    <p>{{ count }}</p>
+
+  </div>
+
+  <div ng-controller="myButton2Ctrl">
+
+    Search Word: <input type="text" ng-model="searchWord">
+
+    <button ng-click="btnCtrl2()">Click Me Function 2!</button>
+
+    <p>{{ searchWord }}</p>
+
+  </div>
+
+  <script>
+
+
+  </script>
+
+</body>
+</html>
